@@ -14,7 +14,9 @@
 + (void)registerDefaultsFromSettingsBundle;
 
 + (NSString *)getIPAddress:(BOOL)preferIPv4 includeCellular:(BOOL)includeCellular;
++ (NSDictionary<NSString*,NSString*>*)getIPAddresses;
 + (BOOL)isValidIpAddress:(NSString *)ip;
++ (NSString*)interfaceNameOfLocalIpAddress:(NSString*)ip;
 + (NSString*)getWifiSSID; // returns nil or string
 + (NSTimeInterval)timeSinceLastWifiChange;
 + (void)warnIfLowFreeSpace;

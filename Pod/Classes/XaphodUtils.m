@@ -69,9 +69,9 @@ static int LowSpaceWarningMB = 50;
  "pdp_ip0/ipv4" = "25.123.163.102";
  "utun0/ipv6" = "fe80::dcd3:5a6d:cd7d:7378";
  */
-+ (NSDictionary *)getIPAddresses
++ (NSDictionary<NSString*,NSString*>*)getIPAddresses
 {
-    NSMutableDictionary *addresses = [NSMutableDictionary dictionaryWithCapacity:8];
+    NSMutableDictionary<NSString*,NSString*> *addresses = [NSMutableDictionary dictionaryWithCapacity:8];
     
     // retrieve the current interfaces - returns 0 on success
     struct ifaddrs *interfaces;
@@ -107,6 +107,21 @@ static int LowSpaceWarningMB = 50;
         freeifaddrs(interfaces);
     }
     return [addresses count] ? addresses : nil;
+}
+
+/** Get interface name of a given IP address (or nil if none found)
+ */
+
++ (NSString*)interfaceNameOfLocalIpAddress:(NSString*)ip {
+    if (!ip || [ip isEqualToString:@""])
+        return nil;
+    NSDictionary<NSString*,NSString*> *addresses = [XaphodUtils getIPAddresses];
+    for (NSString* interfaceNameWithIPV in addresses.allKeys) {
+        if ([addresses[interfaceNameWithIPV] isEqualToString:ip]) {
+            return [interfaceNameWithIPV componentsSeparatedByString:@"/"][0];
+        }
+    }
+    return nil;
 }
 
 /** Check if an IP address is valid.
