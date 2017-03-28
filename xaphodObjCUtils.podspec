@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "xaphodObjCUtils"
-  s.version          = "0.0.4"
+  s.version          = "0.0.5"
   s.summary          = "Xaphod's Objective-C utility pod"
   s.description      = <<-DESC
 			Wouldn't it be nice if swift and objc could live in the same Pod and use each other? Welp, they can't. Thanks Pods.
@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.1'
   s.requires_arc = true
   s.source_files = 'Pod/Classes/*.{m,h}'
+  s.library = 'z'
   #s.resource_bundles = {
   #  'Bluepeer' => ['Pod/Assets/*.{lproj,storyboard}']
   #}
