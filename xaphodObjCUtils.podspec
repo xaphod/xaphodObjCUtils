@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'CocoaRunloopSocket' do |crs|
     crs.source_files = 'Pod/Classes/CocoaRunloopSocket/*.{m,h}'
-    crs.requires_arc = false
+    crs.requires_arc = true
   end
 
   #s.resource_bundles = {
