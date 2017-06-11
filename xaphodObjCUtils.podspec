@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "xaphodObjCUtils"
-  s.version          = "0.0.8"
+  s.version          = "0.0.9"
   s.summary          = "Xaphod's Objective-C utility pod"
   s.description      = <<-DESC
 			Wouldn't it be nice if swift and objc could live in the same Pod and use each other? Welp, they can't. Thanks Pods.

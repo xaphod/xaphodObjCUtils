@@ -17,15 +17,10 @@
 #define IP_ADDR_IPv4    @"ipv4"
 #define IP_ADDR_IPv6    @"ipv6"
 
-// Copied from ViewController.h
-#define VC_NSNOTIFICATION_SHOW_ERROR @"vc-showerror" // userInfo->@"object": NSNumber -> ErrorType
-#define vcLowFreeSpaceWarning 8
-
 @implementation XaphodUtils
 
 static NSString* XaphodUtilsLastKnownSSID = nil;
 static NSDate* XaphodUtilsLastSSIDChange = nil;
-static int LowSpaceWarningMB = 50;
 
 #pragma mark -
 
@@ -246,15 +241,6 @@ static int LowSpaceWarningMB = 50;
 //    
 //    NSLog(@" (END)");
 //}
-
-+ (void)warnIfLowFreeSpace {
-    uint64_t freeSpace = [XaphodUtils deviceSpaceFree];
-    double freeSpaceMB = freeSpace / kbytesMB;
-    if( freeSpaceMB < LowSpaceWarningMB ) {
-        NSLog(@"WARNING, LOW FREE SPACE AVAILABLE - %lf", freeSpaceMB);
-        [[NSNotificationCenter defaultCenter] postNotificationName:VC_NSNOTIFICATION_SHOW_ERROR object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:vcLowFreeSpaceWarning] forKey:@"object"]];
-    }
-}
 
 + (uint64_t)deviceSpaceFree {
     uint64_t totalSpace = 0;

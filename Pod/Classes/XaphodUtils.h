@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define kbytesMB 1048576LL // megabyte in bytes
+#define xdKBytesMB 1048576ULL // megabyte in bytes
 
 @interface XaphodUtils : NSObject
 
@@ -19,7 +19,6 @@
 + (NSString*)interfaceNameOfLocalIpAddress:(NSString*)ip;
 + (NSString*)getWifiSSID; // returns nil or string
 + (NSTimeInterval)timeSinceLastWifiChange;
-+ (void)warnIfLowFreeSpace;
 + (uint64_t)deviceSpaceFree;
 + (uint16_t)getFreeTCPPort;
 + (BOOL)isTCPPortFree:(in_port_t)port;
