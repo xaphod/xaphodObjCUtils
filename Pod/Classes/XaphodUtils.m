@@ -185,6 +185,10 @@ static NSDate* XaphodUtilsLastSSIDChange = nil;
     return ABS([XaphodUtilsLastSSIDChange timeIntervalSinceNow]);
 }
 
++ (NSDate*)dateOfLastWifiChange {
+    return XaphodUtilsLastSSIDChange;
+}
+
 // used for debugging purposes
 // iphone 6S (no change when turning airplane mode on/off, turning wifi or BT on/off): lo0 pdp_ip0 pdp_ip1 pdp_ip2 pdp_ip3 pdp_ip4 ap1 en0 en1 awdl0 ipsec0 ipsec1 ipsec2
 //- (void)logInterfaceNames {

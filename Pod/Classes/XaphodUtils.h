@@ -19,6 +19,7 @@
 + (NSString*)interfaceNameOfLocalIpAddress:(NSString*)ip;
 + (NSString*)getWifiSSID; // returns nil or string
 + (NSTimeInterval)timeSinceLastWifiChange;
++ (NSDate*)dateOfLastWifiChange;
 + (uint64_t)deviceSpaceFree;
 + (uint16_t)getFreeTCPPort;
 + (BOOL)isTCPPortFree:(in_port_t)port;
