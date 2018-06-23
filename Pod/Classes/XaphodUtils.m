@@ -147,22 +147,19 @@ static NSDate* XaphodUtilsLastSSIDChange = nil;
      *  @see CNCopyCurrentNetworkInfo */
     NSArray *interfaceNames = CFBridgingRelease(CNCopySupportedInterfaces());
     
-    NSDictionary *SSIDInfo;
+    NSDictionary *SSIDInfo = nil;
     BOOL isNotEmpty = false;
     for (NSString *interfaceName in interfaceNames) {
-        SSIDInfo = CFBridgingRelease(
-                                     CNCopyCurrentNetworkInfo((__bridge CFStringRef)interfaceName));
+        SSIDInfo = CFBridgingRelease(CNCopyCurrentNetworkInfo((__bridge CFStringRef)interfaceName));
         //DDLogVerbose(@"%s: %@ => %@", __func__, interfaceName, SSIDInfo);
-        
         isNotEmpty = (SSIDInfo.count > 0);
         if (isNotEmpty) {
             break;
         }
     }
     
-    if( isNotEmpty ) {
-        
-        if( XaphodUtilsLastKnownSSID == nil || ( ![[SSIDInfo objectForKey:@"SSID"] isEqualToString:XaphodUtilsLastKnownSSID] ) ) {
+    if (isNotEmpty) {
+        if (XaphodUtilsLastKnownSSID == nil || (![[SSIDInfo objectForKey:@"SSID"] isEqualToString:XaphodUtilsLastKnownSSID])) {
             static BOOL everSet = NO; // the first time we read the SSID, don't update the last change date, because we don't want to sleep in connectToCam for this case
             if (everSet)
                 XaphodUtilsLastSSIDChange = [NSDate date];
@@ -171,9 +168,8 @@ static NSDate* XaphodUtilsLastSSIDChange = nil;
         
         XaphodUtilsLastKnownSSID = [SSIDInfo objectForKey:@"SSID"];
         return [SSIDInfo objectForKey:@"SSID"];
-        
     } else {
-        if( XaphodUtilsLastKnownSSID != nil )
+        if (XaphodUtilsLastKnownSSID != nil)
             XaphodUtilsLastSSIDChange = [NSDate date];
         XaphodUtilsLastKnownSSID = nil;
 
