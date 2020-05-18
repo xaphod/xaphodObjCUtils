@@ -9,10 +9,10 @@
 
 Pod::Spec.new do |s|
   s.name             = "xaphodObjCUtils"
-  s.version          = "0.0.10"
+  s.version          = "0.0.11"
   s.summary          = "Xaphod's Objective-C utility pod"
   s.description      = <<-DESC
-			Wouldn't it be nice if swift and objc could live in the same Pod and use each other? Welp, they can't. Thanks Pods.
+			A collection of obj-c utils I don't want in my swift-only projects
                        DESC
   s.homepage         = "https://github.com/xaphod/xaphodObjCUtils"
   s.license          = 'MIT'
@@ -27,6 +27,11 @@ Pod::Spec.new do |s|
   s.subspec 'CocoaRunloopSocket' do |crs|
     crs.source_files = 'Pod/Classes/CocoaRunloopSocket/*.{m,h}'
     crs.requires_arc = true
+  end
+
+  s.subspec 'RXTimer' do |rx|
+    rx.source_files = 'Pod/Classes/RXTimer/*.{m,h}'
+    rx.requires_arc = true
   end
 
   #s.resource_bundles = {
