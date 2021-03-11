@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "xaphodObjCUtils"
-  s.version          = "0.0.11"
+  s.version          = "0.0.12"
   s.summary          = "Xaphod's Objective-C utility pod"
   s.description      = <<-DESC
 			A collection of obj-c utils I don't want in my swift-only projects

@@ -344,4 +344,9 @@ static NSDate* XaphodUtilsLastSSIDChange = nil;
     return defaults;
 }
 
+// Swift thinks .url is non-null, but it can be null.
++ (NSURL*)printerSafeURLAccess:(UIPrinter*)printer {
+    return printer.URL;
+}
+
 @end
