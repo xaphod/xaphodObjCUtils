@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "xaphodObjCUtils"
-  s.version          = "0.0.12"
+  s.version          = "0.0.13"
   s.summary          = "Xaphod's Objective-C utility pod"
   s.description      = <<-DESC
 			A collection of obj-c utils I don't want in my swift-only projects
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.author           = { "Tim Carr" => "xaphod@gmail.com" }
   s.source           = { :git => "https://github.com/xaphod/xaphodObjCUtils.git", :tag => s.version.to_s }
 
-  s.platform     = :ios, '8.1'
+  s.platform     = :ios, '12'
   s.requires_arc = true
   s.source_files = 'Pod/Classes/*.{m,h}'
   s.library = 'z'
